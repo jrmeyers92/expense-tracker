@@ -22,7 +22,7 @@ export const Provider = ({ children }) => {
 			payload: transaction,
 		});
 	};
-
+	console.log(transactions);
 	return (
 		<ExpenseTrackerContext.Provider
 			value={{ deleteTransaction, addTransaction }}>
