@@ -14,7 +14,7 @@ import { ExpenseTrackerContext } from "../../../context/context";
 import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
-	amout: null,
+	amout: "",
 	catagory: "",
 	type: "Income",
 	date: new Date(),
@@ -28,7 +28,7 @@ const Form = () => {
 	const createTransaction = () => {
 		const transaction = {
 			...formData,
-			amount: formData.amout,
+			amount: Number(formData.amout),
 			id: uuidv4(),
 		};
 		addTransaction(transaction);
@@ -73,8 +73,8 @@ const Form = () => {
 					type='number'
 					label='Amount'
 					fullWidth
-					value={formData.amount}
-					onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
+					onChange={(e) => setFormData({ ...formData, amout: e.target.value })}
+					value={formData.amout}
 				/>
 			</Grid>
 			<Grid item xs={6}>
