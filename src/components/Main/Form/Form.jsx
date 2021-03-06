@@ -12,6 +12,10 @@ import {
 import useStyles from "./styles";
 import { ExpenseTrackerContext } from "../../../context/context";
 import { v4 as uuidv4 } from "uuid";
+import {
+	incomeCategories,
+	expenseCategories,
+} from "../../../constants/categories";
 
 const initialState = {
 	amout: "",
