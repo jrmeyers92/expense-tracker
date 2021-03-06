@@ -16,6 +16,7 @@ import {
 	incomeCategories,
 	expenseCategories,
 } from "../../../constants/categories";
+import formatDate from "../../../utils/formatDate";
 
 const initialState = {
 	amout: "",
