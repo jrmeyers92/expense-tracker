@@ -39,6 +39,9 @@ const Form = () => {
 		setFormData(initialState);
 	};
 
+	const selectedCatagories =
+		formData.type === "Income" ? incomeCategories : expenseCategories;
+
 	return (
 		<Grid container spacing={2}>
 			<Grid item xs={12}>
@@ -67,8 +70,13 @@ const Form = () => {
 						onChange={(e) =>
 							setFormData({ ...formData, catagory: e.target.value })
 						}>
-						<MenuItem value='Business'>Business</MenuItem>
-						<MenuItem value='Salary'>Salary</MenuItem>
+						{selectedCatagories.map((c) => {
+							return (
+								<MenuItem key={c.type} value={c.type}>
+									{c.type}
+								</MenuItem>
+							);
+						})}
 					</Select>
 				</FormControl>
 			</Grid>
