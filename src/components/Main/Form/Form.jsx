@@ -22,7 +22,7 @@ const initialState = {
 	amout: "",
 	catagory: "",
 	type: "Income",
-	date: new Date(),
+	date: formatDate(new Date()),
 };
 
 const Form = () => {
@@ -96,7 +96,9 @@ const Form = () => {
 					label='Date'
 					fullWidth
 					value={formData.date}
-					onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+					onChange={(e) =>
+						setFormData({ ...formData, date: formatDate(e.target.value) })
+					}
 				/>
 			</Grid>
 			<Button
