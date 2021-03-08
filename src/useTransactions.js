@@ -68,17 +68,21 @@ const useTransactions = (title) => {
 		if (category) category.amount += t.amount;
 	});
 
-	const filteredCategories = categories.filter((sc) => sc.amount > 0);
+	const filteredCategories = rightTransactions.filter((c) => c.amount > 0);
 
 	const chartData = {
 		datasets: [
 			{
 				data: filteredCategories.map((c) => c.amount),
-				backgroundColor: filteredCategories.map((c) => c.color),
+				backgroundColor: categories.map((c) => c.color),
 			},
 		],
-		labels: filteredCategories.map((c) => c.type),
+		labels: filteredCategories.map((c) => c.catagory),
 	};
+
+	console.log(filteredCategories);
+
+	// console.log(chartData);
 
 	return { filteredCategories, total, chartData };
 };
